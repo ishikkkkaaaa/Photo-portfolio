@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- 12CEBE -->
+  <head>
+    <link rel="stylesheet" href="style.css" class="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for fun</title>
+
+    <!-- head font 1 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat&family=Homemade+Apple&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="text"><a>About</a></li>
+        <li class="text"><a href="#second">Photo Gallary</a></li>
+        <li class="text"><a>Contact me</a></li>
+      </ul>
+    </nav>
+
+    <section id="first" class="first">
+      <div class="container">
+        <div class="row">
+          <div class="row-l">
+            <h1 class="ml12">Shutter Up.</h1>
+            <h2>Photography by Ishika.</h2>
+          </div>
+          <div class="row-r">
+            <img src="img/first.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="second">
+      <div class="container">
+        <h1>GALLERY DUMP</h1>
+        <div class="row">
+          <img src="img/all/1.jpg" alt="" />
+          <img src="img/all/2.jpg" alt="" />
+          <img src="img/all/3.jpg" alt="" />
+          <img src="img/all/4.jpg" alt="" />
+          <img src="img/all/5.jpg" alt="" />
+          <img src="img/all/6.jpg" alt="" />
+          <img src="img/all/7.jpg" alt="" />
+          <img src="img/all/8.jpg" alt="" />
+          <img src="img/all/9.jpg" alt="" />
+          <img src="img/all/10.jpg" alt="" />
+          <!--  <img src="img/all/11.jpg" alt="">
+              <img src="img/all/12.jpg" alt="">
+              <img src="img/all/1.jpg" alt="">
+              <img src="img/all/1.jpg" alt=""> -->
+        </div>
+      </div>
+    </section>
+
+    <section id="footer">
+      <div class="container footer-row">
+      <hr>
+      <p>Made with love by ISHIKA</p>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script>
+      var scroll = new SmoothScroll('a[href*="#"]', {
+        speed: 500,
+        speedAsDuration: true,
+      });
+    </script>
+    <script>
+      var textWrapper = document.querySelector(".ml12");
+      textWrapper.innerHTML = textWrapper.textContent.replace(
+        /\S/g,
+        "<span class='letter'>$&</span>"
+      );
+
+      anime
+        .timeline({ loop: true })
+        .add({
+          targets: ".ml12 .letter",
+          translateX: [40, 0],
+          translateZ: 0,
+          opacity: [0, 1],
+          easing: "easeOutExpo",
+          duration: 1500,
+          delay: (el, i) => 100 + 30 * i,
+        })
+        .add({
+          targets: ".ml12 .letter",
+          translateX: [0, -30],
+          opacity: [1, 0],
+          easing: "easeInExpo",
+          duration: 2000,
+          delay: (el, i) => 1000 + 30 * i,
+        });
+    </script>
+  </body>
+</html>
